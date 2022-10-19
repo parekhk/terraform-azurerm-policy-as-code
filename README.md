@@ -1,6 +1,6 @@
 <!-- markdownlint-configure-file { "MD004": { "style": "consistent" } } -->
 <!-- markdownlint-disable MD033 -->
-<p>test</p>
+
 <p align="center">
   <a href="https://docs.microsoft.com/en-us/azure/governance/policy/">
       <img src="img/logo.svg" width="600" alt="Terraform-Azure-Policy-as-Code">
