@@ -1,7 +1,9 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "require_resource_group_tags",
+  "name": "umwazpolicy_require_resource_group_tags_customer",
   "properties": {
+    "displayName": "Tag Convention : [Customer]",
+    "description": "Customer Tag value requirement for  Resource group  ",
     "metadata": {
       "category": "Tags"
     },
@@ -11,7 +13,9 @@
         "metadata": {
           "displayName": "Tag Name",
           "description": "Name of the tag, such as 'environment'"
-        }
+        },
+        
+        "defaultValue": "Customer"
       },
       "effect": {
         "type": "String",

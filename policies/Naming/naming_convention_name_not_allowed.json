@@ -1,0 +1,45 @@
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "umwazpolicy_naming_convention_name_not_allowed",
+    "properties": {
+        "displayName": "Naming Convention : [Restricted Name - AzureResources]",
+        "description": "Restrict resource name where it inlcudes umms or umass  ",
+        "metadata": {
+            "category": "Naming"
+        },
+        "parameters": {
+            "effect": {
+                "type": "String",
+                "defaultValue": "Audit",
+                "allowedValues": [
+                    "Audit",
+                    "Disabled",
+                    "Deny",
+                    "AuditIfNotExist"
+                ],
+                "metadata": {
+                    "displayName": "Effect",
+                    "description": "The effect determines what happens when the policy rule is evaluated to match"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+
+                        "anyOf": [
+                            {
+                                "field": "[toLower('name')]",
+                                "contains": "umms"
+                            },
+                            {
+                                "field": "[toLower('name')]",
+                                "contains": "umass"
+                            }                        ]
+
+            },
+            "then": {
+                "effect": "[parameters('effect')]"
+            }
+        }
+    }
+}

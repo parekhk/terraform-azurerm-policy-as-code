@@ -1,0 +1,96 @@
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "umwazpolicy_naming_convention_resourcegroup",
+    "properties": {
+        "displayName": "Naming Convention : [ResourceGroup]",
+        "description": "Adhere to naming convention as per enterprise standards. Name follows this pattern <Organization prefix>,<resoruce prefix><i=unquename>  ",
+        "metadata": {
+            "category": "Naming"
+        },
+        "parameters": {
+            "effect": {
+                "type": "String",
+                "defaultValue": "Audit",
+                "allowedValues": [
+                    "Audit",
+                    "Disabled",
+                    "Deny",
+                    "AuditIfNotExist"
+                ],
+                "metadata": {
+                    "displayName": "Effect",
+                    "description": "The effect determines what happens when the policy rule is evaluated to match"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+                    },
+                    {
+                        "allOf": [
+                            {
+                                "field": "name",
+                                "notLike": "[concat('umwaz','rg','*')]"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "[concat('cwmaz','rg','*')]"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "[concat('resaz','rg','*')]"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "[concat('uhsaz','rg','*')]"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "[concat('facaz','rg','*')]"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "AzureBackupRG*"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "ResourceMover*"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "databricks-rg*"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "NetworkWatcherRG"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "microsoft-network"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "LogAnalyticsDefaultResources"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "DynamicsDeployments*"
+                            },
+                            {
+                                "field": "name",
+                                "notLike": "MC_myResourceGroup*"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "then": {
+                "effect": "[parameters('effect')]"
+            }
+        }
+    }
+}

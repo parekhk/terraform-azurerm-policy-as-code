@@ -1,6 +1,6 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "inherit_resource_group_tags_modify",
+  "name": "umwazpolicy_inherit_resource_group_tags_",
   "properties": {
     "metadata": {
       "category": "Tags"
@@ -12,6 +12,7 @@
           "displayName": "Tag Name",
           "description": "Name of the tag, such as 'environment'"
         }
+        
       },
       "effect": {
         "type": "String",

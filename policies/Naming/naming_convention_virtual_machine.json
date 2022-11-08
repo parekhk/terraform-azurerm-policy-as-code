@@ -1,0 +1,64 @@
+{
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "umwazpolicy_naming_convention_virtual_machine",
+  "properties": {
+    "displayName": "Naming Convention : [VirtualMachine]",
+    "description": "Adhere to naming convention as per enterprise standards. Name follows this pattern <Organization prefix>,<resoruce prefix><i=unquename>  ",
+    "metadata": {
+      "category": "Naming"
+    },
+    "parameters": {
+      "effect": {
+        "type": "String",
+        "defaultValue": "Audit",
+        "allowedValues": [
+          "Audit",
+          "Disabled",
+          "Deny",
+          "AuditIfNotExist"
+        ],
+        "metadata": {
+          "displayName": "Effect",
+          "description": "The effect determines what happens when the policy rule is evaluated to match"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "allOf": [
+              {
+                "field": "name",
+                "notLike": "[concat('umwaz','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('cwmaz','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('resaz','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('uhsaz','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('facaz','*')]"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}

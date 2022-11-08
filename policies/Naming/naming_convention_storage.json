@@ -1,0 +1,64 @@
+{
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "umwazpolicy_naming_convention_storage",
+  "properties": {
+    "displayName": "Naming Convention : [Storage]",
+    "description": "Adhere to naming convention as per enterprise standards. Name follows this pattern <Organization prefix>,<resoruce prefix><i=unquename>  ",
+    "metadata": {
+      "category": "Naming"
+    },
+    "parameters": {
+      "effect": {
+        "type": "String",
+        "defaultValue": "Audit",
+        "allowedValues": [
+          "Audit",
+          "Disabled",
+          "Deny",
+          "AuditIfNotExist"
+        ],
+        "metadata": {
+          "displayName": "Effect",
+          "description": "The effect determines what happens when the policy rule is evaluated to match"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "allOf": [
+              {
+                "field": "name",
+                "notLike": "[concat('umwaz','st','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('cwmaz','st','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('resaz','st','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('uhsaz','st','*')]"
+              },
+              {
+                "field": "name",
+                "notLike": "[concat('facaz','st','*')]"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}
