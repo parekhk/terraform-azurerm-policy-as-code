@@ -2,7 +2,7 @@
   "type": "Microsoft.Authorization/policyDefinitions",
   "name": "umwazpolicy_inherit_resource_group_tags_customer",
   "properties": {
-    "displayName": "Tag Convention : [Customer]",
+    "displayName": "Tag Convention:Inherit Tag From ResoruceGroup [Customer]",
     "description": "Inherit Customer Tag value from Resource group  ",
 
     "metadata": {

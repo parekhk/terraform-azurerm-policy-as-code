@@ -1,6 +1,6 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "inherit_resource_group_tags_append",
+  "name": "umwazpolicy_inherit_resource_group_tags_append",
   "properties": {
     "metadata": {
       "category": "Tags"

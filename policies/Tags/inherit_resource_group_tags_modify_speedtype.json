@@ -2,7 +2,7 @@
   "type": "Microsoft.Authorization/policyDefinitions",
   "name": "umwazpolicy_inherit_resource_group_tags_speedType",
   "properties": {
-    "displayName": "Tag Convention : [SpeedType]",
+    "displayName": "Tag Convention: Inherit Tag From ResoruceGroup [SpeedType]",
     "description": "Inherit SpeedType Tag value from Resource group  ",
     "metadata": {
       "category": "Tags"

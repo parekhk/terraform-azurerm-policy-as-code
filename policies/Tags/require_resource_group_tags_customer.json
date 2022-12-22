@@ -2,7 +2,7 @@
   "type": "Microsoft.Authorization/policyDefinitions",
   "name": "umwazpolicy_require_resource_group_tags_customer",
   "properties": {
-    "displayName": "Tag Convention : [Customer]",
+    "displayName": "Tag Convention : Required Tag ResoruceGroup: [Customer]",
     "description": "Customer Tag value requirement for  Resource group  ",
     "metadata": {
       "category": "Tags"

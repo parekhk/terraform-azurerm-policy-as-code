@@ -2,7 +2,7 @@
   "type": "Microsoft.Authorization/policyDefinitions",
   "name": "umwazpolicy_require_resource_group_tags_speedtype",
   "properties": {
-    "displayName": "Tag Convention : [SpeedType]",
+    "displayName": "Tag Convention : Required Tag  ResoruceGroup: [SpeedType]",
     "description": "SpeedType Tag value requirement for  Resource group  ",
     "metadata": {
       "category": "Tags"
